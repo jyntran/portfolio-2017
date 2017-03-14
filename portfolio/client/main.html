@@ -1,37 +1,14 @@
 <head>
   <title>jyntran</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-  {{> navigation}}
-  {{> hello}}
-  {{> projects}}
-  {{> companies}}
-  {{> contact}}
+  <div id="render-target"></div>
+
+<!--
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="js/kube.js"></script>
+-->
 </body>
-
-<template name="navigation">
-  <ul>
-    <li>home</li> |
-    <li>projects</li> |
-    <li>companies</li> |
-    <li>contact</li>
-  </ul>
-</template>
-
-<template name="hello">
-  <h1>jyntran</h1>
-  <h2>hello world</h2>
-</template>
-
-<template name="projects">
-  <h2>projects</h2>
-</template>
-
-<template name="companies">
-  <h2>companies</h2>
-</template>
-
-<template name="contact">
-  <h2>contact</h2>
-</template>
