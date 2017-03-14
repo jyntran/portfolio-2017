@@ -23,8 +23,6 @@ class App extends Component {
 	render() {
 		return (
 			<div className="container">
-			<div className="row align-center">
-			<div className="col">
 				<header>
 					<h1>jyntran</h1>
 				</header>
@@ -38,14 +36,12 @@ class App extends Component {
 
 				<section>
 					<h2>Companies</h2>
-					<div className="row align-center auto gutters">
-						{this.renderCompanies()}
+					<div className="row align-center auto gutter">
 					</div>
 				</section>
 
 				<section>
 					<h2>Contact</h2>
-					<div className="row align-center">
 					<form method="post" action="" className="form">
 						<div className="form-item">
 							<label>Name</label>
@@ -63,10 +59,7 @@ class App extends Component {
 							<button>Submit</button>
 						</div>
 					</form>
-					</div>
 				</section>
-			</div>
-			</div>
 			</div>
 		);
 	}
