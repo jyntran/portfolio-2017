@@ -1,1 +1,11 @@
 /* CSS declarations go here */
+
+.project-row {
+	margin: 16px;
+}
+
+.project-thumb {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

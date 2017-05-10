@@ -1,92 +1,36 @@
-import React, { Component, PropTypes } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
-
-import { Projects } from '../api/projects.js';
-import { Companies } from '../api/companies.js';
+import React, { Component } from 'react';
 
 import Navigation from './Navigation.jsx';
-import Project from './Project.jsx';
-import Company from './Company.jsx';
+import Header from './Header.jsx';
+import About from './About.jsx';
+import ProjectSection from './Projects.jsx';
+import CompanySection from './Companies.jsx';
+import Contact from './Contact.jsx';
 
-class App extends Component {
-	renderNavigation() {
-		return <Navigation/>;
-	}
-
-
-	renderProjects() {
-		return this.props.projects.map((project) => (
-			<Project key={project._id} project={project} />
-		));
-	}
-
-	renderCompanies() {
-		return this.props.companies.map((company) => (
-			<Company key={company._id} company={company} />
-		));
-	}
-
+export default class App extends Component {
 	render() {
 		return (
 			<div className="container">
-				{this.renderNavigation()}
+				<Navigation/>
 
-				<header>
-					<h1>jyntran</h1>
-				</header>
+				<Header/>
 
 				<section>
-					<h2>About</h2>
-					<div className="row align-center">
-					</div>
+					<About/>
 				</section>
 
 				<section>
-					<h2>Projects</h2>
-					<div className="row align-center">
-						{this.renderProjects()}
-					</div>
+					<ProjectSection/>
 				</section>
 
 				<section>
-					<h2>Companies</h2>
-					<div className="row align-center auto gutter">
-					</div>
+					<CompanySection/>
 				</section>
 
 				<section>
-					<h2>Contact</h2>
-					<form method="post" action="" className="form">
-						<div className="form-item">
-							<label>Name</label>
-							<input name="name" className="w50"/>
-						</div>
-						<div className="form-item">
-							<label>Email</label>
-							<input type="email" name="email" className="w50"/>
-						</div>
-						<div className="form-item">
-							<label>Message</label>
-							<textarea rows="6"></textarea>
-						</div>
-						<div className="form-item">
-							<button>Submit</button>
-						</div>
-					</form>
+					<Contact/>
 				</section>
 			</div>
 		);
 	}
 }
-
-App.propTypes = {
-	projects: PropTypes.array.isRequired,
-	companies: PropTypes.array.isRequired
-};
-
-export default createContainer(() => {
-	return {
-		projects: Projects.find({}).fetch(),
-		companies: Companies.find({}).fetch()
-	};
-}, App);
