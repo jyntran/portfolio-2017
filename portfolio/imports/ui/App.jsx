@@ -4,10 +4,16 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { Projects } from '../api/projects.js';
 import { Companies } from '../api/companies.js';
 
+import Navigation from './Navigation.jsx';
 import Project from './Project.jsx';
 import Company from './Company.jsx';
 
 class App extends Component {
+	renderNavigation() {
+		return <Navigation/>;
+	}
+
+
 	renderProjects() {
 		return this.props.projects.map((project) => (
 			<Project key={project._id} project={project} />
@@ -23,9 +29,17 @@ class App extends Component {
 	render() {
 		return (
 			<div className="container">
+				{this.renderNavigation()}
+
 				<header>
 					<h1>jyntran</h1>
 				</header>
+
+				<section>
+					<h2>About</h2>
+					<div className="row align-center">
+					</div>
+				</section>
 
 				<section>
 					<h2>Projects</h2>
