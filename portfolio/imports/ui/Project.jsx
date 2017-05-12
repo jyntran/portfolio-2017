@@ -4,23 +4,23 @@ export default class Project extends Component {
 	render() {
 		return (
 			<div className="col col-6 project">
-				<div className="row">
-					<div className="col col-6 project-thumb">
-						<img src={this.props.project.thumb}
-							alt={this.props.project.title}
-							title={this.props.project.title} />
-					</div>
-					<div className="col col-6 project-info">
+				<figure>
+					<img src={this.props.project.thumb}
+						alt={this.props.project.title}
+						title={this.props.project.title} />
+					<figcaption>
 						<h3>{this.props.project.title}</h3>
 						<p>{this.props.project.description}</p>
+						<ul>
 						{ this.props.project.live ?
-							<a href={this.props.project.live} className="button small">Live</a>
+							<li><a href={this.props.project.live} className="button small">Live</a></li> 
 							: null }
 						{ this.props.project.source ?
-							<a href={this.props.project.source} className="button small outline">Source</a>
+							<li><a href={this.props.project.source} className="button small outline">Source</a></li>
 							: null }
-					</div>
-				</div>
+						</ul>
+					</figcaption>
+				</figure>
 			</div>
 		);
 	}

@@ -4,8 +4,8 @@ export default class Header extends Component {
 	render() {
 	return (
 		<header>
-			<div className="header">
-				<img src="img/logo.png" className="logo" />
+			<div className="header-inner">
+				<img src="img/logo-t.png" className="logo" />
 			</div>
 		</header>
 	);

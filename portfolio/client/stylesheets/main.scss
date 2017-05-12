@@ -1,23 +1,160 @@
-button,
-.button {
-	color: #fff;
-	background-color: #c00;
-	
-	&.outline{
-		color: #c00;
-		background-color: #fff;
-		border-color: #c00;
+/*
+   Globals
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Unica+One');
+@import url('https://fonts.googleapis.com/css?family=Muli');
+
+h1,
+h2,
+h3 {
+	font-family: 'Unica One', sans-serif;
+}
+
+body,
+section {
+	font-family: 'Muli', sans-serif;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #c00;
+
+	&:hover {
+		color: #f33;
 	}
 }
 
+input,
+select,
+textarea {
+	&:focus {
+		border-color: #f33;
+	}
+}
+
+
+/*
+   Kube
+*/
+
+@import "../scss/kube.scss";
+
+button,
+.button {
+    // $text-color, $back-color
+    @include button(#fff, #c00);
+}
+
+
+/*
+   Main
+*/
+
+body {
+	background: url('img/endeavour.jpg') fixed no-repeat;
+	background-size: cover;
+}
+
 .container {
-	max-width: 80%;
+	width: 100%;
+	padding: 90px 0 0 0;
 	margin: auto;
+}
+
+.navigation {
+	width: 100%;
+	max-height: 90px;
+	background-color: white;
+	color: #ccc;
+	padding: 8px;
+	text-transform: uppercase;
+	border-bottom: 1px solid #ccc;
+	position: fixed;
+	z-index: 100;
+
+	&-brand {
+		width: 15%;
+		height: 50%;
+		display: flex;
+		align-items: center;
+
+		&-name {
+			display: flex;
+			align-items: center;
+			padding: 8px;
+			font-weight: bold;
+			font-size: 150%;
+			color: black;
+			font-family: 'Unica One', sans-serif;
+		}
+	}
+
+	&-bar {
+		display: flex;
+		align-items: center;
+		text-align: right;
+
+		li {
+			display: inline-block;
+			margin: 0 8px;
+			padding: 4px;
+
+			a {
+				padding: 16px;
+				font-weight: bold;
+				cursor: pointer;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+section {
+	margin: auto;
+	padding: 64px;
+
+	h2 {
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	ul {
+		li {
+			display: inline-block;
+			margin: 0 8px;
+			padding: 4px;
+		}
+	}
+
+	&.header {
+		background: rgba(0,0,0,0.7);
+	}
+
+	&.about {
+		background: #fff;
+	}
+
+	&.projects {
+		background: #eee;
+	}
+
+	&.companies {
+		background: #fff;
+	}
+
+	&.contact {
+		background: #eee;
+	}
 }
 
 .header {
 	width: 100%;
-	padding: 120px;
+	padding: 5% 25%;
 	text-align: center;
 
 	.logo {
@@ -26,45 +163,10 @@ button,
 	}
 }
 
-.navigation {
-	width: 100%;
-	background-color: white;
-	color: #ccc;
-	text-align: center;
-	padding: 16px;
-	text-transform: uppercase;
-
-	a {
-		padding: 16px;
-		color: #333;
-		font-weight: bold;
-		cursor: pointer;
-
-		&:hover {
-			color: #c00;
-		}
-	}
-
-	&.fixed {
-		text-align: right;
-		border-bottom: 1px solid #ccc;
-		background: url('img/logo.png') white no-repeat;
-		background-size: contain;
-	}
-}
-
-section {
-	padding: 64px;
-
-	h2 {
-		text-align: center;
-		text-transform: uppercase;
-	}
-}
-
 .project {
+	padding: 16px;
 	border: 1px solid #ccc;
-	padding: 8px;
+	background: white;
 
 	&-row {
 		margin: 16px;
@@ -79,6 +181,16 @@ section {
 	&-info {
 		padding: 8px 16px;
 	}
+
+	ul {
+		text-align: center;
+	}
+
+	li {
+		display: inline-block;
+		margin: 0 8px;
+		padding: 4px;
+	}
 }
 
 .company {
@@ -86,4 +198,23 @@ section {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.footer {
+	background: white;
+	border-top: 1px solid #ccc;
+	padding: 16px;
+
+	.copy {
+		text-align: center;
+	}
+
+	.social {
+		text-align: right;
+
+		&-icon {
+			font-size: 150%;
+			margin: 0 8px;
+		}
+	}
 }

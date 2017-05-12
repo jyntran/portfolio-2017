@@ -6,30 +6,36 @@ import AboutSection from './About.jsx';
 import ProjectSection from './Projects.jsx';
 import CompanySection from './Companies.jsx';
 import ContactSection from './Contact.jsx';
+import Footer from './Footer.jsx';
 
 export default class App extends Component {
 	render() {
 		return (
-			<div className="container">
+			<div>
 				<Navigation/>
 
-				<Header/>
+				<div className="container">
+					<section className="header">
+						<Header/>
+					</section>
+					
+					<section className="about">
+						<AboutSection/>
+					</section>
 
-				<section>
-					<AboutSection/>
-				</section>
+					<section className="projects">
+						<ProjectSection/>
+					</section>
 
-				<section>
-					<ProjectSection/>
-				</section>
+					<section className="companies">
+						<CompanySection/>
+					</section>
 
-				<section>
-					<CompanySection/>
-				</section>
-
-				<section>
-					<ContactSection/>
-				</section>
+					<section className="contact">
+						<ContactSection/>
+					</section>
+				</div>
+				<Footer/>
 			</div>
 		);
 	}
