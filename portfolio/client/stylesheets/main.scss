@@ -16,11 +16,6 @@ section {
 	font-family: 'Muli', sans-serif;
 }
 
-ul {
-	margin: 0;
-	padding: 0;
-}
-
 a {
 	color: #c00;
 
@@ -48,6 +43,7 @@ button,
 .button {
     // $text-color, $back-color
     @include button(#fff, #c00);
+    transition: all 0.2s;
 }
 
 
@@ -68,7 +64,7 @@ body {
 
 .navigation {
 	width: 100%;
-	max-height: 90px;
+	height: 90px;
 	background-color: white;
 	color: #ccc;
 	padding: 8px;
@@ -76,39 +72,39 @@ body {
 	border-bottom: 1px solid #ccc;
 	position: fixed;
 	z-index: 100;
+	display: flex;
+	align-items: center;
 
 	&-brand {
-		width: 15%;
-		height: 50%;
-		display: flex;
-		align-items: center;
+		background: url('img/logo.png') center left no-repeat;
+		background-size: contain;
+		height: 70%;
+		margin-left: 16px;
 
-		&-name {
-			display: flex;
-			align-items: center;
-			padding: 8px;
-			font-weight: bold;
-			font-size: 150%;
-			color: black;
-			font-family: 'Unica One', sans-serif;
+		a {
+			display: block;
 		}
 	}
 
 	&-bar {
-		display: flex;
-		align-items: center;
 		text-align: right;
 
-		li {
-			display: inline-block;
-			margin: 0 8px;
-			padding: 4px;
+		ul {
+			margin: 0;
+			padding: 0;
 
-			a {
-				padding: 16px;
-				font-weight: bold;
-				cursor: pointer;
-				text-decoration: none;
+			li {
+				margin: 0 8px;
+				padding: 4px;
+				display: inline-block;
+
+				a {
+					padding: 16px;
+					font-weight: bold;
+					cursor: pointer;
+					text-decoration: none;
+					transition: all 0.2s;
+				}
 			}
 		}
 	}
@@ -116,19 +112,17 @@ body {
 
 section {
 	margin: auto;
-	padding: 64px;
+	padding: 64px 20%;
+
+	&:hover h2 {
+		color: #c00;
+		letter-spacing: 2px;
+	}
 
 	h2 {
 		text-align: center;
 		text-transform: uppercase;
-	}
-
-	ul {
-		li {
-			display: inline-block;
-			margin: 0 8px;
-			padding: 4px;
-		}
+		transition: all 0.4s;
 	}
 
 	&.header {
@@ -157,9 +151,25 @@ section {
 	padding: 5% 25%;
 	text-align: center;
 
+	&:hover .logo {
+		filter: grayscale(0%);
+	}
+
 	.logo {
 		width: 50%;
 		height: auto;
+		transition: all 0.4s;
+		filter: grayscale(20%);
+	}
+}
+
+.about {
+	&-skills, &-links {
+		margin: 16px;
+		li {
+			display: inline-block;
+			margin: 0 4px;
+		}
 	}
 }
 
@@ -172,14 +182,15 @@ section {
 		margin: 16px;
 	}
 
-	&-thumb {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
+	figure {
+		img {
+			transition: all 0.4s;
+			filter: grayscale(40%);
+		}
 
-	&-info {
-		padding: 8px 16px;
+		&:hover img {
+			filter: grayscale(0%);
+		}
 	}
 
 	ul {
@@ -198,6 +209,12 @@ section {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.contact {
+	form {
+		max-width: 800px;
+	}
 }
 
 .footer {

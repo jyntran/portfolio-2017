@@ -16,7 +16,7 @@ class CompanySection extends Component {
 	render() {
 	return (
 		<div className="row align-center">
-			<div className="col col-8">
+			<div className="col col-12">
 				<h2>Companies</h2>
 				<div className="row align-center gutters">
 					{this.renderCompanies()}
