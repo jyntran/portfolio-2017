@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 import Navigation from './Navigation.jsx';
 import Header from './Header.jsx';
-import About from './About.jsx';
+import AboutSection from './About.jsx';
 import ProjectSection from './Projects.jsx';
 import CompanySection from './Companies.jsx';
-import Contact from './Contact.jsx';
+import ContactSection from './Contact.jsx';
 
 export default class App extends Component {
 	render() {
@@ -16,7 +16,7 @@ export default class App extends Component {
 				<Header/>
 
 				<section>
-					<About/>
+					<AboutSection/>
 				</section>
 
 				<section>
@@ -28,7 +28,7 @@ export default class App extends Component {
 				</section>
 
 				<section>
-					<Contact/>
+					<ContactSection/>
 				</section>
 			</div>
 		);

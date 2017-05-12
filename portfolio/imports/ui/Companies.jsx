@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { createContainer } from 'meteor/react-meteor-data';
 
 import { Companies } from '../api/companies.js';
@@ -9,7 +10,7 @@ class CompanySection extends Component {
 	renderCompanies() {
 		return this.props.companies.map((company) => (
 			<Company key={company._id} company={company} />
-		));
+		)).reverse();
 	}
 
 	render() {
@@ -17,10 +18,8 @@ class CompanySection extends Component {
 		<div className="row align-center">
 			<div className="col col-8">
 				<h2>Companies</h2>
-				<div className="row align-center">
-					<div className="col col-8">
-						{this.renderCompanies()}
-					</div>
+				<div className="row align-center gutters">
+					{this.renderCompanies()}
 				</div>
 			</div>
 		</div>

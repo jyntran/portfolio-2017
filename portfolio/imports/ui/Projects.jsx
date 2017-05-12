@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { createContainer } from 'meteor/react-meteor-data';
 
 import { Projects } from '../api/projects.js';
@@ -17,10 +18,8 @@ class ProjectSection extends Component {
 		<div className="row align-center">
 			<div className="col col-8">
 				<h2>Projects</h2>
-				<div className="row align-center">
-					<div className="col col-8">
-						{this.renderProjects()}
-					</div>
+				<div className="row align-center gutters">
+					{this.renderProjects()}
 				</div>
 			</div>
 		</div>
@@ -35,5 +34,5 @@ ProjectSection.propTypes = {
 export default createContainer(() => {
 	return {
 		projects: Projects.find({}).fetch()
-	};
+	}
 }, ProjectSection);

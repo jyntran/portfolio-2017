@@ -4,8 +4,8 @@ export default class Header extends Component {
 	render() {
 	return (
 		<header>
-			<div className="row align-center">
-				<h1>jyntran</h1>
+			<div className="header">
+				<img src="img/logo.png" className="logo" />
 			</div>
 		</header>
 	);
