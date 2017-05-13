@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import Scroll, {
+	Link,
+	Element,
+	Events,
+	scroll,
+	scrollSpy
+} from 'react-scroll';
 
 import Navigation from './Navigation.jsx';
 import Header from './Header.jsx';
@@ -9,10 +16,25 @@ import ContactSection from './Contact.jsx';
 import Footer from './Footer.jsx';
 
 export default class App extends Component {
+	componentDidMount() {
+	    Events.scrollEvent.register('begin', function(to, element) {
+	    });
+	    Events.scrollEvent.register('end', function(to, element) {
+	    });
+	    scrollSpy.update();
+	}
+
+	componentWillUnmount() {
+		Events.scrollEvent.remove('begin');
+		Events.scrollEvent.remove('end');
+	}
+
 	render() {
 		return (
 			<div>
-				<Navigation/>
+				<Element name="home" className="element">
+					<Navigation/>
+				</Element>
 
 				<div className="container">
 					<section className="header">
@@ -20,19 +42,27 @@ export default class App extends Component {
 					</section>
 					
 					<section className="about">
-						<AboutSection/>
+						<Element name="about" className="element">
+							<AboutSection/>
+						</Element>
 					</section>
 
 					<section className="projects">
-						<ProjectSection/>
+						<Element name="projects" className="element">
+							<ProjectSection/>
+						</Element>
 					</section>
 
 					<section className="companies">
-						<CompanySection/>
+						<Element name="companies" className="element">
+							<CompanySection/>
+						</Element>
 					</section>
 
 					<section className="contact">
-						<ContactSection/>
+						<Element name="contact" className="element">
+							<ContactSection/>
+						</Element>
 					</section>
 				</div>
 				<Footer/>
