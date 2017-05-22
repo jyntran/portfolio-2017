@@ -10,9 +10,12 @@ export default class AboutSection extends Component {
 				<div className="row align-center">
 					<div className="about-skills col">
 						<ul>
-							<li className="label">Web Development</li>
-							<li className="label">Digital Media</li>
-							<li className="label">Technical Support</li>
+							<li className="label outline">HTML5</li>
+							<li className="label outline">CSS3</li>
+							<li className="label outline">JavaScript</li>
+							<li className="label outline">C</li>
+							<li className="label outline">C++</li>
+							<li className="label outline">Python</li>
 						</ul>
 					</div>
 				</div>	

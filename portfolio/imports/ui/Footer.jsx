@@ -5,7 +5,7 @@ export default class Footer extends Component {
 	return (
 		<div className="footer">
 			<div className="row">
-				<div className="fm col col-6">
+				<div className="copy col col-6">
 					<p className="small">&copy; 2017 Jensen Tran<br/>
 					<span className="smaller">Powered by ReactJS and MeteorJS</span></p>
 				</div>
