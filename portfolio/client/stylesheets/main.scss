@@ -2,18 +2,18 @@
    Globals
 */
 
-@import url('https://fonts.googleapis.com/css?family=Unica+One');
-@import url('https://fonts.googleapis.com/css?family=Muli');
+@import url('https://fonts.googleapis.com/css?family=Abel');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 h1,
 h2,
 h3 {
-	font-family: 'Unica One', sans-serif;
+	font-family: 'Abel', sans-serif;
 }
 
 body,
 section {
-	font-family: 'Muli', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 a {
@@ -52,7 +52,11 @@ button,
 */
 
 body {
-	background: url('img/endeavour.jpg') fixed no-repeat;
+	background: linear-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)
+      ),
+      url('img/endeavour.jpg') fixed no-repeat;
 	background-size: cover;
 }
 
@@ -114,11 +118,6 @@ section {
 	margin: auto;
 	padding: 64px 20%;
 
-	&:hover h2 {
-		color: #c00;
-		letter-spacing: 2px;
-	}
-
 	h2 {
 		text-align: center;
 		text-transform: uppercase;
@@ -126,7 +125,6 @@ section {
 	}
 
 	&.header {
-		background: rgba(0,0,0,0.7);
 	}
 
 	&.about {
@@ -150,20 +148,53 @@ section {
 	width: 100%;
 	padding: 5% 25%;
 	text-align: center;
+	height: 600px;
 
-	&:hover .logo {
-		filter: grayscale(0%);
+	.logo, .name {
+		position: absolute;
+		transition: all 0.4s;
+	}
+
+	&:hover {
+		.logo {
+			filter: grayscale(0%);
+			/*transform: translate(8px, -8px);*/
+		}
+		.name {
+			/*transform: translate(-8px, 8px);*/
+		}
 	}
 
 	.logo {
 		width: 50%;
 		height: auto;
-		transition: all 0.4s;
+		left: 25%;
 		filter: grayscale(20%);
+	}
+
+	.name {
+		width: 100%;
+		margin-top: 25%;
+		left: 0;
+
+		h1 {
+			color: #eee;
+			letter-spacing: 16px;
+			text-transform: uppercase;
+		}
 	}
 }
 
 .about {
+	text-align: center;
+
+	.portrait {
+		width: 160px;
+		height: auto;
+		margin-bottom: 16px;
+		border-radius: 100%;
+	}
+
 	&-skills, &-links {
 		margin: 16px;
 		li {
@@ -230,8 +261,8 @@ section {
 		text-align: right;
 
 		&-icon {
-			font-size: 150%;
-			margin: 0 8px;
+			font-size: 125%;
+			margin: 8px;
 		}
 	}
 }
