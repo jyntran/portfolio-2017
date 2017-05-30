@@ -10,7 +10,7 @@ class CompanySection extends Component {
 	renderCompanies() {
 		return this.props.companies.map((company) => (
 			<Company key={company._id} company={company} />
-		)).reverse();
+		));
 	}
 
 	render() {
@@ -33,6 +33,6 @@ CompanySection.propTypes = {
 
 export default createContainer(() => {
 	return {
-		companies: Companies.find({}).fetch()
+		companies: Companies.find({}, {sort:{created: -1}}).fetch()
 	};
 }, CompanySection);

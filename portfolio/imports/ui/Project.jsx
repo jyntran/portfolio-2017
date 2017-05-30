@@ -1,26 +1,50 @@
 import React, { Component } from 'react';
 
 export default class Project extends Component {
+	renderButtons() {
+		const live = this.props.project.live;
+		const source = this.props.project.source;
+		return (
+			<div className="form-buttons">
+				{ live ?
+					<a href={live} className="button small" target="_blank">Live</a>
+					: null }
+				{ source ?
+					<a href={source} className="button small outline" target="_blank">Source</a>
+					: null }
+			</div>
+		)	
+	}
+
+	renderThumb() {
+		const thumbStyle = {
+			"backgroundImage": "url('"+this.props.project.thumb+"')",
+			"backgroundSize": "cover"
+		};
+		return (
+			<div className="project-thumb"
+				style={thumbStyle}>
+			</div>
+		);
+	}
+
+	renderInfo() {
+		return (
+			<div className="project-info">
+				<h3>{this.props.project.title}</h3>
+				<p>{this.props.project.description}</p>
+				{this.renderButtons()}
+			</div>		
+		);
+	}
+
 	render() {
 		return (
 			<div className="col col-6 project">
-				<figure>
-					<img src={this.props.project.thumb}
-						alt={this.props.project.title}
-						title={this.props.project.title} />
-					<figcaption>
-						<h3>{this.props.project.title}</h3>
-						<p>{this.props.project.description}</p>
-						<ul>
-						{ this.props.project.live ?
-							<li><a href={this.props.project.live} className="button small">Live</a></li> 
-							: null }
-						{ this.props.project.source ?
-							<li><a href={this.props.project.source} className="button small outline">Source</a></li>
-							: null }
-						</ul>
-					</figcaption>
-				</figure>
+				<div className="project-container">
+					{this.renderThumb()}
+					{this.renderInfo()}
+				</div>
 			</div>
 		);
 	}

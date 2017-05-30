@@ -206,33 +206,38 @@ section {
 }
 
 .project {
-	padding: 16px;
 	border: 1px solid #ccc;
 	background: white;
 
-	&-row {
-		margin: 16px;
+	&-container {
+		position: relative;
+		width: 100%;
+		height: 100%;
 	}
 
-	figure {
-		img {
-			transition: all 0.4s;
-			filter: grayscale(40%);
-		}
+	// todo: fix dynamic widths
 
-		&:hover img {
-			filter: grayscale(0%);
-		}
+	&-thumb {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		transition: all 0.4s;
+		filter: grayscale(100%);
+		opacity: 0.2;
 	}
 
-	ul {
-		text-align: center;
+	&-info {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		padding: 16px;
+		background: rgba(255,255,255,0.8);
+		transition: all 0.2s;
+		opacity: 0;
 	}
 
-	li {
-		display: inline-block;
-		margin: 0 8px;
-		padding: 4px;
+	&:hover &-info {
+		opacity: 1;
 	}
 }
 
