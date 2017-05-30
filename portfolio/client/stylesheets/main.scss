@@ -84,6 +84,7 @@ body {
 		background-size: contain;
 		height: 70%;
 		margin-left: 16px;
+		cursor: pointer;
 
 		a {
 			display: block;
@@ -245,6 +246,10 @@ section {
 .contact {
 	form {
 		max-width: 800px;
+	}
+
+	&-message {
+		bottom: 40px;
 	}
 }
 
