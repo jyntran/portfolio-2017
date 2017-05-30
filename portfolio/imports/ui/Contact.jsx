@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 
+function Status(props) {
+	const success = props.success;
+	const error = props.error;
+	if (error) {
+		return (
+			<div className="message error contact-message" data-component="message">Error! {this.state.errorMsg}<span className="close small"></span></div>
+		);
+	} else if (success) {
+		return (
+			<div className="message success contact-message" data-component="message">Success! Your message has been sent.<span className="close small"></span></div>
+		);
+	} else { return null; }
+}
+
 export default class ContactSection extends Component {
 	constructor(props) {
 		super(props);
@@ -15,6 +29,9 @@ export default class ContactSection extends Component {
 		this.handleMessageChange = this.handleMessageChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleClearForm = this.handleClearForm.bind(this);
+		this.handleClearStatus = this.handleClearStatus.bind(this);
+		this.handleError = this.handleError.bind(this);
+		this.handleSuccess = this.handleSuccess.bind(this);
 	}
 
 	handleNameChange(e) {
@@ -31,6 +48,11 @@ export default class ContactSection extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
+
+		let form = this;
+
+		this.handleClearStatus();
+
 		var formData = {
 			name: this.state.nameVal,
 			email: this.state.emailVal,
@@ -40,9 +62,10 @@ export default class ContactSection extends Component {
 		Meteor.call('sendEmail', formData, function(err){
 			if (err) {
 				//console.log('Error', err);
+				form.handleError(err);
 			} else {
 				//console.log('Success: email sent');
-				this.handleClearForm();
+				form.handleSuccess();
 			}
 		})
 	}
@@ -53,6 +76,21 @@ export default class ContactSection extends Component {
 			nameVal: '',
 			emailVal: '',
 			messageVal: ''
+		});
+	}
+
+	handleError(e) {
+		this.setState({error: e.toString()});
+	}
+
+	handleSuccess(e) {
+		this.setState({success: true});
+	}
+
+	handleClearStatus(e) {
+		this.setState({
+			error: undefined,
+			success: false
 		});
 	}
 
@@ -77,6 +115,7 @@ export default class ContactSection extends Component {
 					<div className="form-item form-buttons">
 						<button className="button" type="submit">Submit</button>
 						<button className="button secondary" onClick={this.handleClearForm}>Clear All</button>
+						<Status success={this.state.success} error={this.state.error} />
 					</div>
 				</form>
 			</div>
