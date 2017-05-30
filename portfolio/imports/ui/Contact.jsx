@@ -5,6 +5,7 @@ export default class ContactSection extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			nameVal: '',
 			emailVal: '',
 			messageVal: ''
 		}
@@ -13,6 +14,7 @@ export default class ContactSection extends Component {
 		this.handleEmailChange = this.handleEmailChange.bind(this);
 		this.handleMessageChange = this.handleMessageChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleClearForm = this.handleClearForm.bind(this);
 	}
 
 	handleNameChange(e) {
@@ -30,17 +32,28 @@ export default class ContactSection extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		var formData = {
+			name: this.state.nameVal,
 			email: this.state.emailVal,
 			message: this.state.messageVal
 		}
 
 		Meteor.call('sendEmail', formData, function(err){
 			if (err) {
-				console.log('Error', err);
+				//console.log('Error', err);
 			} else {
-				FlowRouter.go('/contact');
+				//console.log('Success: email sent');
+				this.handleClearForm();
 			}
 		})
+	}
+
+	handleClearForm(e) {
+		e.preventDefault();
+		this.setState({
+			nameVal: '',
+			emailVal: '',
+			messageVal: ''
+		});
 	}
 
 	render() {
@@ -51,18 +64,19 @@ export default class ContactSection extends Component {
 				<form method="post" action="" className="form" onSubmit={this.handleSubmit}>
 					<div className="form-item">
 						<label>Name:</label>
-						<input type="text" name="name" value={this.state.nameVal} onChange={this.handleNameChange} />
+						<input required type="text" name="name" value={this.state.nameVal} onChange={this.handleNameChange} />
 					</div>
 					<div className="form-item">
 						<label>Email:</label>
-						<input type="email" name="email" value={this.state.emailVal} onChange={this.handleEmailChange} />
+						<input required type="email" name="email" value={this.state.emailVal} onChange={this.handleEmailChange} />
 					</div>
 					<div className="form-item">
 						<label>Message:</label>
-						<textarea rows="6" value={this.state.messageVal} onChange={this.handleMessageChange}></textarea>
+						<textarea required rows="6" value={this.state.messageVal} onChange={this.handleMessageChange}></textarea>
 					</div>
-					<div className="form-item">
-						<button type="submit">Submit</button>
+					<div className="form-item form-buttons">
+						<button className="button" type="submit">Submit</button>
+						<button className="button secondary" onClick={this.handleClearForm}>Clear All</button>
 					</div>
 				</form>
 			</div>
