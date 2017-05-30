@@ -10,7 +10,7 @@ export default class Project extends Component {
 					<a href={live} className="button small" target="_blank">Live</a>
 					: null }
 				{ source ?
-					<a href={source} className="button small outline" target="_blank">Source</a>
+					<a href={source} className="button small" target="_blank">Source</a>
 					: null }
 			</div>
 		)	
@@ -18,8 +18,7 @@ export default class Project extends Component {
 
 	renderThumb() {
 		const thumbStyle = {
-			"backgroundImage": "url('"+this.props.project.thumb+"')",
-			"backgroundSize": "cover"
+			"backgroundImage": "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 100%), url('" + this.props.project.thumb + "')"
 		};
 		return (
 			<div className="project-thumb"
@@ -40,7 +39,7 @@ export default class Project extends Component {
 
 	render() {
 		return (
-			<div className="col col-6 project">
+			<div className="project">
 				<div className="project-container">
 					{this.renderThumb()}
 					{this.renderInfo()}

@@ -18,7 +18,7 @@ class ProjectSection extends Component {
 		<div className="row align-center">
 			<div className="col col-12">
 				<h2>Projects</h2>
-				<div className="row align-center gutters">
+				<div className="project-grid">
 					{this.renderProjects()}
 				</div>
 			</div>
