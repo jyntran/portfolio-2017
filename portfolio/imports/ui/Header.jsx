@@ -5,9 +5,7 @@ export default class Header extends Component {
 	return (
 		<header>
 			<div className="header-inner">
-				<div className="logo">
-					<img src="img/logo-t.png"/>
-				</div>
+				<div className="logo"></div>
 				<div className="name">
 					<h1>Jensen Tran</h1>
 				</div>

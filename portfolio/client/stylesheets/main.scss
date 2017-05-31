@@ -148,35 +148,27 @@ section {
 .header {
 	width: 100%;
 	padding: 5% 25%;
-	text-align: center;
 	height: 600px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	.logo, .name {
-		position: absolute;
 		transition: all 0.4s;
 	}
 
-	&:hover {
-		.logo {
-			filter: grayscale(0%);
-			/*transform: translate(8px, -8px);*/
-		}
-		.name {
-			/*transform: translate(-8px, 8px);*/
-		}
-	}
-
 	.logo {
-		width: 50%;
-		height: auto;
-		left: 25%;
-		filter: grayscale(20%);
+		width: 100%;
+		height: 360px;
+		margin: 48px auto;
+    	background: url('img/logo-t.png') center no-repeat;
+    	background-size: contain;
 	}
 
 	.name {
 		width: 100%;
-		margin-top: 25%;
-		left: 0;
+		margin: 48px auto;
+		text-align: center;
 
 		h1 {
 			color: #eee;
@@ -211,9 +203,10 @@ section {
 
 	&-grid {
 		@include grid-media-columns(2);
+		margin-top: 36px;
 
 		& > div {
-			margin-bottom: 12px;
+			margin-bottom: 1vw;
 			width: 100%;
 			height: 30vw;
 		}
@@ -243,6 +236,13 @@ section {
 		background: rgba(0,0,0,0.6);
 		transition: all 0.2s;
 		opacity: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&-container {
+			margin: 1vw 1vw;
+		}
 
 		h3, p {
 			color: white;

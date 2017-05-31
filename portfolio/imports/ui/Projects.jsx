@@ -33,6 +33,6 @@ ProjectSection.propTypes = {
 
 export default createContainer(() => {
 	return {
-		projects: Projects.find({}, {sort:{created: -1}}).fetch()
+		projects: Projects.find({}, {sort: {created: -1}}).fetch()
 	}
 }, ProjectSection);
