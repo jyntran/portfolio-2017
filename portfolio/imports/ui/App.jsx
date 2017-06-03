@@ -11,7 +11,6 @@ import Navigation from './Navigation.jsx';
 import Header from './Header.jsx';
 import AboutSection from './About.jsx';
 import ProjectSection from './Projects.jsx';
-import CompanySection from './Companies.jsx';
 import ContactSection from './Contact.jsx';
 import Footer from './Footer.jsx';
 
@@ -50,12 +49,6 @@ export default class App extends Component {
 					<section className="projects">
 						<Element name="projects" className="element">
 							<ProjectSection/>
-						</Element>
-					</section>
-
-					<section className="companies">
-						<Element name="companies" className="element">
-							<CompanySection/>
 						</Element>
 					</section>
 

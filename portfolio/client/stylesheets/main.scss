@@ -52,11 +52,13 @@ button,
 */
 
 body {
+	background: url('img/shuttle.jpg') fixed center no-repeat;
 	background: linear-gradient(
         rgba(0, 0, 0, 0.7),
         rgba(0, 0, 0, 0.7)
       ),
-      url('img/endeavour.jpg') fixed no-repeat;
+      url('img/shuttle.jpg') fixed center no-repeat;
+      /* Image by Eugene Lim: https://unsplash.com/?photo=X3MNSra7o9s */
 	background-size: cover;
 }
 
@@ -69,21 +71,22 @@ body {
 .navigation {
 	width: 100%;
 	height: 90px;
-	background-color: white;
+	background: #fff;
+	background: linear-gradient(0deg, #f3f3f3, #fff);
 	color: #ccc;
 	padding: 8px;
 	text-transform: uppercase;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #ddd;
 	position: fixed;
 	z-index: 100;
 	display: flex;
 	align-items: center;
 
 	&-brand {
-		background: url('img/logo.png') center left no-repeat;
+		background: url('img/logo-red.svg') center left no-repeat;
 		background-size: contain;
 		height: 70%;
-		margin-left: 16px;
+		margin-left: 18px;
 		cursor: pointer;
 
 		a {
@@ -117,7 +120,13 @@ body {
 
 section {
 	margin: auto;
-	padding: 64px 20%;
+	padding: 64px 0;
+
+	& > div {
+		width: 100%;
+		max-width: 900px;
+		margin: auto;
+	}
 
 	h2 {
 		text-align: center;
@@ -161,7 +170,7 @@ section {
 		width: 100%;
 		height: 360px;
 		margin: 48px auto;
-    	background: url('img/logo-t.png') center no-repeat;
+    	background: url('img/logo-red.svg') center no-repeat;
     	background-size: contain;
 	}
 
@@ -190,11 +199,30 @@ section {
 
 	&-skills, &-links {
 		margin: 16px;
-		li {
-			display: inline-block;
-			margin: 0 4px;
+
+		ul {
+			margin: 0;
+
+			li {
+				display: inline-block;
+				margin: 4px;
+			}
 		}
 	}
+
+	&-links {
+		ul {
+			li {
+				width: 75%;
+				max-width: 120px;
+
+				a {
+					width: 100%;
+				}
+			}
+		}
+	}
+		
 }
 
 .project {
@@ -203,12 +231,15 @@ section {
 
 	&-grid {
 		@include grid-media-columns(2);
-		margin-top: 36px;
+		margin-top: 64px;
+		text-align: center;
 
 		& > div {
-			margin-bottom: 1vw;
-			width: 100%;
-			height: 30vw;
+			margin-bottom: 4px;
+			width: 480px;
+			height: 480px;
+			max-width: 42vw;
+			max-height: 42vw;
 		}
 	}
 
@@ -223,6 +254,7 @@ section {
 		width: 100%;
 		height: 100%;
 		filter: grayscale(100%);
+		-webkit-filter: grayscale(100%);
 		background-size: cover;
 		background-position: center;
 	}
@@ -234,11 +266,13 @@ section {
 		padding: 16px;
 		background: white;
 		background: rgba(0,0,0,0.6);
+		text-align: left;
 		transition: all 0.2s;
-		opacity: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		opacity: 0;
+		visibility: hidden;
 
 		&-container {
 			margin: 1vw 1vw;
@@ -251,23 +285,34 @@ section {
 
 	&:hover &-info {
 		opacity: 1;
+		visibility: visible;
 	}
 }
 
 .company {
 	padding: 16px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	text-align: center;
+	width: 30%;
+	display: inline-block;
+
+	&-grid {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-flow: row wrap;
+		margin: auto;
+	}
 }
 
 .contact {
 	form {
-		max-width: 800px;
 	}
 
 	&-message {
-		bottom: 40px;
+		font-family: Ubuntu, sans-serif;
+		position: absolute;
+		top: -4px;
+		width: 100%;
 	}
 }
 
@@ -275,19 +320,106 @@ section {
 	background: white;
 	border-top: 1px solid #ccc;
 	padding: 16px;
+	min-height: 50px;
 
 	.copy {
+		display: inline-block;
+
 		p {
 			margin: 0;
 		}
 	}
 
 	.social {
+		display: inline-block;
 		text-align: right;
 
 		&-icon {
 			font-size: 125%;
-			margin: 8px 0 8px 16px;
+			margin: 0 0 8px 16px;
+		}
+	}
+}
+
+
+/*
+   Media queries
+*/
+
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+	.project {
+		&-grid {
+			& > div {
+				margin: 12px 0px;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	section {
+		& > div {
+			max-width: 720px;
+		}
+	}
+	.project {
+		&-grid {
+			& > div {
+				margin: 8px 12px;
+				max-width: 36vw;
+				max-height: 36vw;
+			}
+		}
+	}
+}
+
+@media (max-width: 425px) {
+	.navigation {
+		display: none;
+	}
+
+	.container {
+		padding: 0;
+	}
+
+	section {
+		& > div {
+			max-width: 360px;
+		}
+	}
+
+	.header {
+		.logo {
+			height: 320px;
+		}
+	}
+
+	.project {
+		&-grid {
+			& > div {
+				max-width: 84vw;
+				max-height: 84vw;
+			}
+		}
+	}
+
+	.company {
+		width: 100%;
+
+		&-grid {
+			flex-flow: column wrap;
+			display: flex;
+			justify-content: center;
+			width: 90%;
+		}
+	}
+}
+
+@media (max-width: 320px) {
+	section {
+		& > div {
+			max-width: 280px;
 		}
 	}
 }

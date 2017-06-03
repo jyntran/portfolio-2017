@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default class Company extends Component {
 	render() {
 		return (
-			<div className="col-4 company">
+			<div className="company">
 				<img src={this.props.company.image} alt={this.props.company.text} title={this.props.company.text} />
 			</div>
 		);
