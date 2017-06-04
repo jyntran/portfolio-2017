@@ -53,10 +53,11 @@ export default class BlogSection extends Component {
 
 	renderBlogLink() {
 		if (this.state.feed) {
-			return (
-				<a href={this.state.feed.link} target="_blank" className="button">
-					Go to Blog
+			return (<li>
+				<a href={this.state.feed.link} target="_blank">
+					<i>View More</i>
 				</a>
+				</li>
 			);
 		}
 	}
@@ -79,9 +80,10 @@ export default class BlogSection extends Component {
 			<div className="col col-8">
 				<h2>Blog</h2>
 				<div className="blog-container">
-					<h3>Recent Entries</h3>
-					<ul>{this.renderEntries()}</ul>
+					<h3>Recent</h3>
+					<ul>{this.renderEntries()}
 					{this.renderBlogLink()}
+					</ul>
 				</div>
 			</div>
 		</div>
