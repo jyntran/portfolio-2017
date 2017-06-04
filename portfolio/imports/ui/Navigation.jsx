@@ -49,16 +49,6 @@ export default class Navigation extends Component {
                   </li>
                   <li>
                     <Link
-                      to="blog"
-                      spy={true}
-                      smooth={true}
-                      offset={-100}
-                      duration={500}>
-                        Blog
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
                       to="contact"
                       spy={true}
                       smooth={true}

@@ -17,8 +17,11 @@ section {
 }
 
 a {
-	color: #999;
+	color: #333;
 	text-decoration: none;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-webkit-transition: all 0.2s;
 	transition: all 0.2s;
 
 	&:hover {
@@ -45,6 +48,9 @@ button,
 .button {
     // $text-color, $back-color
     @include button(#fff, #c00);
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	-webkit-transition: all 0.2s;
     transition: all 0.2s;
 }
 
@@ -128,6 +134,9 @@ body {
 					cursor: pointer;
 					text-decoration: none;
 					letter-spacing: 2px;
+					-moz-transition: all 0.2s;
+					-o-transition: all 0.2s;
+					-webkit-transition: all 0.2s;
 					transition: all 0.2s;
 
 					&:active, &:hover {
@@ -145,7 +154,7 @@ section {
 
 	& > div {
 		width: 100%;
-		max-width: 900px;
+		max-width: 960px;
 		margin: auto;
 	}
 
@@ -153,7 +162,6 @@ section {
 		text-align: center;
 		text-transform: uppercase;
 		letter-spacing: 4px;
-		transition: all 0.4s;
 	}
 
 	&:not(:first-child):nth-child(even) {
@@ -162,6 +170,18 @@ section {
 
 	&:not(:first-child):nth-child(odd) {
 		background: #efefef;
+	}
+
+	a {
+		border-bottom: 2px solid #c00;
+		-moz-transition: all 0.2s;
+		-o-transition: all 0.2s;
+		-webkit-transition: all 0.2s;
+		transition: all 0.2s;
+
+		&:hover {
+			border-bottom: 2px solid #f00;
+		}
 	}
 }
 
@@ -172,10 +192,6 @@ section {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	.logo, .name {
-		transition: all 0.4s;
-	}
 
 	.logo {
 		width: 100%;
@@ -210,6 +226,7 @@ section {
 
 	p {
 		text-align: left;
+		font-size: 1.2em;
 	}
 
 	&-skills, &-links {
@@ -241,19 +258,18 @@ section {
 }
 
 .project {
-	background: white;
-
 	&-grid {
-		@include grid-media-columns(2);
-		margin-top: 64px;
 		text-align: center;
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		max-width: 960px;
+		margin-top: 24px;
 
 		& > div {
-			margin-bottom: 12px;
-			width: 440px;
-			height: 440px;
-			max-width: 42vw;
-			max-height: 42vw;
+			margin: 0;
+			flex: 1 1 50%;
+			height: 480px;
 		}
 	}
 
@@ -279,7 +295,6 @@ section {
 		background: white;
 		background: rgba(0,0,0,0.6);
 		text-align: left;
-		transition: all 0.2s;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -298,21 +313,6 @@ section {
 	&:hover &-info {
 		opacity: 1;
 		visibility: visible;
-	}
-}
-
-.company {
-	padding: 16px;
-	text-align: center;
-	width: 30%;
-	display: inline-block;
-
-	&-grid {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		flex-flow: row wrap;
-		margin: auto;
 	}
 }
 
@@ -343,7 +343,6 @@ section {
 
 .footer {
 	border-top: 1px solid #ddd;
-	height: 56px;
 	width: 100%;
 	background: #fff;
 	background: linear-gradient(0deg, #f3f3f3, #fff);
@@ -358,12 +357,20 @@ section {
 
 	.copy {
 		display: inline-block;
-		padding: 16px;
 		text-align: center;
+	}
+}
 
-		p {
-			margin: 0;
-		}
+
+.social {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+
+	a {
+		margin: 4px;
+		padding: 12px;
 	}
 }
 
@@ -372,20 +379,10 @@ section {
    Media queries
 */
 
-
-@media (min-width: 1024px) and (max-width: 1439px) {
-	.project {
-		&-grid {
-			& > div {
-				margin: 12px 0px;
-			}
-		}
-	}
-}
-
 @media (min-width: 768px) and (max-width: 1023px) {
 	section {
 		& > div {
+			width: 90%;
 			max-width: 720px;
 		}
 	}
@@ -393,12 +390,12 @@ section {
 	.project {
 		&-grid {
 			& > div {
-				margin: 8px 12px;
-				max-width: 36vw;
-				max-height: 36vw;
+				width: 45vw;
+				height: 45vw;
 			}
 		}
 	}
+
 }
 
 @media (max-width: 425px) {
@@ -425,20 +422,10 @@ section {
 	.project {
 		&-grid {
 			& > div {
-				max-width: 80vw;
-				max-height: 80vw;
+				flex: 1 1 100%;
+				width: 80vw;
+				height: 80vw;
 			}
-		}
-	}
-
-	.company {
-		width: 100%;
-
-		&-grid {
-			flex-flow: column wrap;
-			display: flex;
-			justify-content: center;
-			width: 90%;
 		}
 	}
 }
@@ -447,6 +434,16 @@ section {
 	section {
 		& > div {
 			max-width: 90%;
+		}
+	}
+
+	.project {
+		&-grid {
+			& > div {
+				flex: 1 1 100%;
+				width: 90vw;
+				height: 90vw;
+			}
 		}
 	}
 }
