@@ -55,7 +55,7 @@ export default class BlogSection extends Component {
 		if (this.state.feed) {
 			return (<li>
 				<a href={this.state.feed.link} target="_blank">
-					<i>View More</i>
+					<b>View More</b>
 				</a>
 				</li>
 			);
