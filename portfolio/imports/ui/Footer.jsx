@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 
+import SocialSection from './Social.jsx';
+
 export default class Footer extends Component {
+	getCurrentYear() {
+		return new Date().getFullYear();
+	}
+
 	render() {
 	return (
 		<div className="footer">
 			<div className="footer-container">
-				<div className="copy w50 float-left">
-					<p className="small">&copy; 2017 Jensen Tran</p>
-				</div>
-				<div className="social w50 float-right">
-					<a href="#"><i className="fa fa-facebook social-icon" aria-hidden="true"></i></a>
-					<a href="#"><i className="fa fa-twitter social-icon" aria-hidden="true"></i></a>
+				<div className="copy w100">
+					<SocialSection/>
+					<p className="small">&copy; 2014 - {this.getCurrentYear()} Jensen Tran</p>
 				</div>
 			</div>
 		</div>

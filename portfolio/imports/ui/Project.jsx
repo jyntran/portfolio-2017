@@ -19,7 +19,8 @@ export default class Project extends Component {
 	renderThumb() {
 		const thumbUrl = this.props.project.thumb ? this.props.project.thumb : 'img/project/_.jpg';
 		const thumbStyle = {
-			"backgroundImage": "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.3) 100%), url('" + thumbUrl + "')"
+			backgroundImage: "linear-gradient(to bottom, rgba(255,255,255,0.6) 0%, rgba(0,0,0,0.4) 100%), url('" + thumbUrl + "')"
+			//backgroundImage: "url('" + thumbUrl + "')"
 		};
 		return (
 			<div className="project-thumb"
