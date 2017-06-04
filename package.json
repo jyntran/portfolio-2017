@@ -1,0 +1,28 @@
+{
+  "name": "portfolio-2017",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "uikit": "^3.0.0-beta.18"
+  },
+  "devDependencies": {
+    "webpack": "^2.2.1"
+  },
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jyntran/portfolio-2017.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jyntran/portfolio-2017/issues"
+  },
+  "homepage": "https://github.com/jyntran/portfolio-2017#readme",
+  "keywords": [],
+  "description": ""
+}
