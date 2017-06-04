@@ -19,7 +19,7 @@ section {
 a {
 	color: #c00;
 	text-decoration: none;
-	
+
 	&:hover {
 		color: #f33;
 	}
@@ -119,6 +119,7 @@ body {
 					font-weight: bold;
 					cursor: pointer;
 					text-decoration: none;
+					letter-spacing: 2px;
 					transition: all 0.2s;
 				}
 			}
@@ -139,6 +140,7 @@ section {
 	h2 {
 		text-align: center;
 		text-transform: uppercase;
+		letter-spacing: 4px;
 		transition: all 0.4s;
 	}
 

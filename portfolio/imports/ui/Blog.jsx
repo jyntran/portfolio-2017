@@ -2,11 +2,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { createContainer } from 'meteor/react-meteor-data';
 
+function formatDate(date) {
+	var options = {
+		year: 'numeric',
+		month: '2-digit',
+		day: 'numeric'
+	};
+	return new Date(date).toLocaleDateString('en-us', options);
+}
+
 export default class BlogSection extends Component {
 	constructor() {
 		super();
 		this.state = {};
 	}
+
+
 
 	componentDidMount() {
 		const url = "http://blog.jyntran.ca/atom.xml";
@@ -30,14 +41,12 @@ export default class BlogSection extends Component {
 	                var entry = {
 	                	title: elem.find('title').text(),
 	                	link: elem.find('id').text(),
-	                	date: new Date(elem.find('published').text()).toLocaleDateString()
+	                	date: formatDate(elem.find('published').text())
 	                };
 	                json.entries.push(entry);
 	                return i<2;
 	            });
-
 	            this.setState({feed: json});
-
 	        }.bind(this)   
 	    });
 	}
