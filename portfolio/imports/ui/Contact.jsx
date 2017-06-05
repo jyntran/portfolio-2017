@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 
-import SocialSection from './Social.jsx';
-
 function Status(props) {
 	const success = props.success;
 	const error = props.error;

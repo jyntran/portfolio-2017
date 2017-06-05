@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import URLs from './URLs.jsx';
 import SocialSection from './Social.jsx';
 
 export default class OtherSection extends Component {

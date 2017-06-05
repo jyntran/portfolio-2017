@@ -3,7 +3,7 @@ import '../imports/api/projects.js';
 import { Email } from 'meteor/email';
 
 Meteor.startup(function() {
-	process.env.MAIL_URL='smtp://DOMAIN:PASSWORD@smtp.mailgun.org:587';
+	process.env.MAIL_URL='smtp://postmaster@mail.jyntran.ca:c8a021ed35ee94a9171568e784d9a3f4@smtp.mailgun.org:587';
 });
 
 if (Meteor.isServer) {
