@@ -407,10 +407,20 @@ section {
 		max-width: 90%;
 	}
 
+	input[name="beemail"] {
+		display: none;
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	&-form-buttons {
+		position: relative;
+	}
+
 	&-message {
 		font-family: Ubuntu, sans-serif;
 		position: absolute;
-		top: -4px;
+		margin-top: -48px;
 		width: 100%;
 	}
 }

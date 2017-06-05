@@ -8,7 +8,7 @@ function Status(props) {
 	const error = props.error;
 	if (error) {
 		return (
-			<div className="message error contact-message" data-component="message">Error! {this.state.errorMsg}<span className="close small"></span></div>
+			<div className="message error contact-message" data-component="message">{error.message}<span className="close small"></span></div>
 		);
 	} else if (success) {
 		return (
@@ -23,11 +23,13 @@ export default class ContactSection extends Component {
 		this.state = {
 			nameVal: '',
 			emailVal: '',
-			messageVal: ''
+			messageVal: '',
+			beemailVal: ''
 		}
 
 		this.handleNameChange = this.handleNameChange.bind(this);
 		this.handleEmailChange = this.handleEmailChange.bind(this);
+		this.handleEmailChangeConfirm = this.handleEmailChangeConfirm.bind(this);
 		this.handleMessageChange = this.handleMessageChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleClearForm = this.handleClearForm.bind(this);
@@ -36,12 +38,20 @@ export default class ContactSection extends Component {
 		this.handleSuccess = this.handleSuccess.bind(this);
 	}
 
+	componentDidMount() {
+		$('#emailConfirm').hide();
+	}
+
 	handleNameChange(e) {
 		this.setState({nameVal: e.target.value});
 	}
 
 	handleEmailChange(e) {
 		this.setState({emailVal: e.target.value});
+	}
+
+	handleEmailChangeConfirm(e) {
+		this.setState({beemailVal: e.target.value});
 	}
 
 	handleMessageChange(e) {
@@ -58,6 +68,7 @@ export default class ContactSection extends Component {
 		var formData = {
 			name: this.state.nameVal,
 			email: this.state.emailVal,
+			beemail: this.state.beemailVal,
 			message: this.state.messageVal
 		}
 
@@ -82,7 +93,7 @@ export default class ContactSection extends Component {
 	}
 
 	handleError(e) {
-		this.setState({error: e.toString()});
+		this.setState({error: e});
 	}
 
 	handleSuccess(e) {
@@ -91,7 +102,7 @@ export default class ContactSection extends Component {
 
 	handleClearStatus(e) {
 		this.setState({
-			error: undefined,
+			error: false,
 			success: false
 		});
 	}
@@ -109,12 +120,13 @@ export default class ContactSection extends Component {
 					<div className="form-item">
 						<label>Email:</label>
 						<input required type="email" name="email" value={this.state.emailVal} onChange={this.handleEmailChange} />
+						<input id="emailConfirm" name="emailConfirm" value={this.state.beemailVal} onChange={this.handleEmailChangeConfirm} />
 					</div>
 					<div className="form-item">
 						<label>Message:</label>
 						<textarea required rows="6" value={this.state.messageVal} onChange={this.handleMessageChange}></textarea>
 					</div>
-					<div className="form-item form-buttons">
+					<div className="form-item form-buttons contact-form-buttons">
 						<button className="button" type="submit">Submit</button>
 						<button className="button secondary" onClick={this.handleClearForm}>Clear All</button>
 						<Status success={this.state.success} error={this.state.error} />

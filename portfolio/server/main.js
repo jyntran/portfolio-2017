@@ -1,5 +1,4 @@
 import '../imports/api/projects.js';
-import '../imports/api/companies.js';
 
 import { Email } from 'meteor/email';
 
@@ -11,6 +10,16 @@ if (Meteor.isServer) {
 	Meteor.methods({
 		sendEmail: function(formData) {
 			console.log('Meteor sendEmail');
+
+			// make sure all aruments are strings
+			check([formData.name, formData.email, formData.message], [String]);
+
+			// check honeypot
+			if (formData.beemail) {
+				console.log('sendEmail failed due to honeypot');
+				return;
+			}
+
 			// replace line breaks for html
 			var htmlMessage = formData.message;
 			htmlMessage = htmlMessage.replace(/(?:\r\n|\r|\n)/g, '<br />');
@@ -22,6 +31,8 @@ if (Meteor.isServer) {
 				text: "Message from " + formData.name + " (" + formData.email + "):\n\n" + formData.message
 			});
 			console.log('sendEmail success');
+
+			return true;
 		}
 	})
 }
