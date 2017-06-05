@@ -16,9 +16,9 @@ import Footer from './Footer.jsx';
 
 export default class App extends Component {
 	componentDidMount() {
-	    Events.scrollEvent.register('begin', function(to, element) {
+	    Events.scrollEvent.register('begin', function() {
 	    });
-	    Events.scrollEvent.register('end', function(to, element) {
+	    Events.scrollEvent.register('end', function() {
 	    });
 	    scrollSpy.update();
 	}
