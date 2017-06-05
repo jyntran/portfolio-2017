@@ -33,6 +33,7 @@ export default class Navigation extends Component {
                       spy={true}
                       smooth={true}
                       duration={500}
+                      offset={-150}
                       isDynamic={true}>
                         About
                     </Link>
@@ -44,6 +45,7 @@ export default class Navigation extends Component {
                       spy={true}
                       smooth={true}
                       duration={500}
+                      offset={-150}
                       isDynamic={true}>
                         Projects
                     </Link>
@@ -55,6 +57,7 @@ export default class Navigation extends Component {
                       spy={true}
                       smooth={true}
                       duration={500}
+                      offset={-150}
                       isDynamic={true}>
                         Contact
                     </Link>

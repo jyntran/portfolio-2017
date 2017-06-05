@@ -3,7 +3,7 @@
 */
 
 @import url('https://fonts.googleapis.com/css?family=Abel');
-@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
 h1,
 h2,
@@ -17,7 +17,7 @@ body {
 
 body,
 section {
-	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 1em;
 }
 
@@ -111,7 +111,7 @@ body {
 		cursor: pointer;
 
 		&:hover {
-			background-image: url('img/logo-red.svg');			
+			//background-image: url('img/logo-red.svg');			
 		}
 
 		a {
@@ -138,13 +138,14 @@ body {
 					cursor: pointer;
 					text-decoration: none;
 					letter-spacing: 2px;
-					-moz-transition: all 0.2s;
-					-o-transition: all 0.2s;
-					-webkit-transition: all 0.2s;
-					transition: all 0.2s;
+					-moz-transition: all 0.4s;
+					-o-transition: all 0.4s;
+					-webkit-transition: all 0.4s;
+					transition: all 0.4s;
+					border-bottom: 1px solid rgba(0,0,0,0);
 
-					&:active, &:hover {
-						color: #c00;
+					&:hover {
+						color: #666;
 					}
 				}
 			}
@@ -152,7 +153,7 @@ body {
 	}
 
 	&-active {
-		border-bottom: 1px solid #c00;
+		//border-color: #c00!important;
 	}
 }
 
@@ -163,7 +164,6 @@ a.active {
 section {
 	margin: auto;
 	padding: 64px 0;
-	min-height: calc(100vh);
 
 	& > div {
 		width: 90%;
@@ -227,35 +227,20 @@ section {
     	.path {
     		stroke: #fff;
 			stroke-width: 6%;
-			stroke-dasharray: 27000;
-			stroke-dashoffset: 27000;
+			stroke-dasharray: 26000;
+			stroke-dashoffset: 26000;
 	  		animation: stroke_fill 3s ease-out forwards;
-			transform-origin: center;
 		}
 
 		@keyframes stroke_fill {
 			0% {
-				stroke-dashoffset: 27000;
+				stroke-dashoffset: 26000;
 			}
 			40% {
 				stroke-dashoffset: 0;
-				//fill: rgba(204,0,0,0);
 			}
 			100% {
 				stroke-dashoffset: 0;
-				//fill: rgba(204,0,0,1);
-			}
-		}
-
-		@keyframes heartbeat {
-			0% {
-				stroke: #fff;
-			}
-			50% {
-				stroke: #c00;
-			}
-			100% {
-				stroke: #fff;
 			}
 		}
 	}
