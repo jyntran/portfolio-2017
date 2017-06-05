@@ -12,6 +12,7 @@ import Header from './Header.jsx';
 import AboutSection from './About.jsx';
 import ProjectSection from './Projects.jsx';
 import ContactSection from './Contact.jsx';
+import OtherSection from './Other.jsx';
 import Footer from './Footer.jsx';
 
 export default class App extends Component {
@@ -57,7 +58,12 @@ export default class App extends Component {
 							<ContactSection/>
 						</Element>
 					</section>
+
+					<section className="more">
+						<OtherSection/>
+					</section>
 				</div>
+				
 				<Footer/>
 			</div>
 		);

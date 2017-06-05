@@ -11,6 +11,8 @@ export default class Navigation extends Component {
               spy={true}
               smooth={true}
               duration={500}
+              offset={0}
+              isDynamic={true}
               className="navigation-brand w5">
             </Link>
             <div className="navigation-bar w95">
@@ -22,7 +24,9 @@ export default class Navigation extends Component {
                       activeClass="navigation-active"
                       spy={true}
                       smooth={true}
-                      duration={500}>
+                      duration={500}
+                      offset={0}
+                      isDynamic={true}>
                         Home
                     </Link>
                   </li>
