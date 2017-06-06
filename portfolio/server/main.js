@@ -2,6 +2,14 @@ import '../imports/api/projects.js';
 
 import { Email } from 'meteor/email';
 
+Meteor.startup(function() {
+	if (Meteor.settings) {
+		process.env.MAIL_URL = Meteor.settings.private.mailgun.mail_url;
+	} else {
+		console.log('WARNING: no settings file found');
+	}
+});
+
 if (Meteor.isServer) {
 	Meteor.methods({
 		sendEmail: function(formData) {
