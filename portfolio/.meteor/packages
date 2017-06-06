@@ -26,3 +26,7 @@ ejson
 check
 marccantwell:meteor-scss
 seba:minifiers-autoprefixer
+xolvio:cleaner
+dburles:factory
+practicalmeteor:faker
+dburles:stringify-pretty
