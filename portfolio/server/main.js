@@ -2,10 +2,6 @@ import '../imports/api/projects.js';
 
 import { Email } from 'meteor/email';
 
-Meteor.startup(function() {
-	process.env.MAIL_URL='smtp://DOMAIN:PASSWORD@smtp.mailgun.org:587';
-});
-
 if (Meteor.isServer) {
 	Meteor.methods({
 		sendEmail: function(formData) {
