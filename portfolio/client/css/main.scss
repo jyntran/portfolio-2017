@@ -24,9 +24,6 @@ section {
 a {
 	color: #333;
 	text-decoration: none;
-	-moz-transition: all 0.2s;
-	-o-transition: all 0.2s;
-	-webkit-transition: all 0.2s;
 	transition: all 0.2s;
 
 	&:hover {
@@ -55,9 +52,6 @@ button,
     @include button(#fff, #c00);
     font-size: 0.8em;
     text-transform: uppercase;
-	-moz-transition: all 0.2s;
-	-o-transition: all 0.2s;
-	-webkit-transition: all 0.2s;
     transition: all 0.2s;
 }
 
@@ -75,9 +69,6 @@ body {
       url('img/bg.jpg') fixed center no-repeat;
       /* Photo by Teresa Tran http://huateasa.tk */
 	background-attachment: fixed;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	-webkit-background-size: cover;
 	background-size: cover;
 }
 
@@ -144,9 +135,6 @@ body {
 					cursor: pointer;
 					text-decoration: none;
 					letter-spacing: 2px;
-					-moz-transition: all 0.4s;
-					-o-transition: all 0.4s;
-					-webkit-transition: all 0.4s;
 					transition: all 0.4s;
 					border-bottom: 1px solid rgba(0,0,0,0);
 
@@ -198,9 +186,6 @@ section {
 
 	a {
 		border-bottom: 1px solid #c00;
-		-moz-transition: all 0.2s;
-		-o-transition: all 0.2s;
-		-webkit-transition: all 0.2s;
 		transition: all 0.2s;
 
 		&:hover {
@@ -334,9 +319,6 @@ section {
 		justify-content: center;
 		opacity: 0;
 		visibility: hidden;
-		-moz-transition: all 0.2s;
-		-o-transition: all 0.2s;
-		-webkit-transition: all 0.2s;
 		transition: all 0.2s;
 
 		&-container {
