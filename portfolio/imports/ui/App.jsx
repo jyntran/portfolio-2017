@@ -16,7 +16,16 @@ import OtherSection from './Other.jsx';
 import Footer from './Footer.jsx';
 
 export default class App extends Component {
+	constructor() {
+		super();
+		this.state = {
+			loading: true
+		};
+	}
+
 	componentDidMount() {
+		setTimeout(() => this.setState({ loading: false }), 1500);
+
 	    Events.scrollEvent.register('begin', function() {
 	    });
 	    Events.scrollEvent.register('end', function() {
@@ -30,8 +39,12 @@ export default class App extends Component {
 	}
 
 	render() {
+		const { loading } = this.state;
+
+		if (loading) { return null }
+
 		return (
-			<div>
+			<div className="app">
 				<Element name="home" className="element">
 					<Navigation/>
 				</Element>
