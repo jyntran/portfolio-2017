@@ -63,11 +63,11 @@ export default class Project extends Component {
 	}
 
 	renderButton() {
-		var classes = 'fa ';
+		var classes;
 		if (this.state.showInfo) {
-			classes += 'fa-times-circle'
+			classes = 'icon-cancel'
 		} else {
-			classes += 'fa fa-info-circle'
+			classes = 'icon-info'
 		}
 		return (
 			<div className="project-info-button"
