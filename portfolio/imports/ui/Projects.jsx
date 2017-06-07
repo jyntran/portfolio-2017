@@ -32,6 +32,8 @@ ProjectSection.propTypes = {
 };
 
 export default createContainer(() => {
+	Meteor.subscribe('projects');
+
 	return {
 		projects: Projects.find({}, {sort: {created: -1}}).fetch()
 	}
