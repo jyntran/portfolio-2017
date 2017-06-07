@@ -79,7 +79,6 @@ export default class Project extends Component {
 
 	handleInfo(e) {
 		const info = !this.state.showInfo;
-		console.log(info);
 		this.setState({
 			showInfo: info
 		});
