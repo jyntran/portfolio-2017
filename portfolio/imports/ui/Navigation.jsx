@@ -20,12 +20,12 @@ export default class Navigation extends Component {
                 <ul>
                   <li>
                     <Link
-                      to="home"
                       activeClass="navigation-active"
+                      to="home"
                       spy={true}
                       smooth={true}
                       duration={500}
-                      offset={0}
+                      offset={1}
                       isDynamic={true}>
                         Home
                     </Link>

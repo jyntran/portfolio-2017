@@ -10,16 +10,16 @@ export default class SocialSection extends Component {
 		return (
 			<div className="social">
 				<a href={githubURL} title="GitHub">
-					<i className="fa fa-github" aria-hidden="true"></i>
+					<i className="icon-github" aria-hidden="true"></i>
 				</a>
 				<a href={linkedinURL} title="LinkedIn">
-					<i className="fa fa-linkedin" aria-hidden="true"></i>
+					<i className="icon-linkedin" aria-hidden="true"></i>
 				</a>
 				<a href={twitterURL} title="Twitter">
-					<i className="fa fa-twitter" aria-hidden="true"></i>
+					<i className="icon-twitter" aria-hidden="true"></i>
 				</a>
 				<a href={facebookURL} title="Facebook">
-					<i className="fa fa-facebook" aria-hidden="true"></i>
+					<i className="icon-facebook" aria-hidden="true"></i>
 				</a>
 			</div>
 		);
